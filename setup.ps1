@@ -6,7 +6,7 @@ winget install Rainmeter.Rainmeter --accept-package-agreements --accept-source-a
 winget install CharlesMilette.TransparentTB --accept-package-agreements --accept-source-agreements
 
 # Клонування репозиторію з налаштуваннями Rainmeter
-$repoUrl = "https://github.com/your-username/your-repo.git"
+$repoUrl = "https://github.com/Kyrylo-Shkinov/personal-desktop-setup.git"
 $tempPath = "$env:TEMP\rainmeter-setup"
 
 if (Test-Path $tempPath) {
