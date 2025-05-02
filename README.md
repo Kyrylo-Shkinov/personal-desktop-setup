@@ -19,5 +19,5 @@
 
 ### 1. Клонуй репозиторій:
 ```powershell
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/Kyrylo-Shkinov/personal-desktop-setup.git
+cd personal-desktop-setup
