@@ -1,3 +1,4 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 # Встановлення програм
 winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install voidtools.Everything --accept-package-agreements --accept-source-agreements
