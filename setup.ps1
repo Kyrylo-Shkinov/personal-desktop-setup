@@ -1,4 +1,5 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 # Встановлення програм
 winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install voidtools.Everything --accept-package-agreements --accept-source-agreements
@@ -19,12 +20,30 @@ git clone $repoUrl $tempPath
 # Копіювання Skins до Documents\Rainmeter
 $skinsSource = Join-Path $tempPath "Skins"
 $skinsDest = Join-Path $env:USERPROFILE "Documents\Rainmeter\Skins"
-Copy-Item $skinsSource\* -Destination $skinsDest -Recurse -Force
+
+# Видаляємо конфліктні файли у Skins (файли, які заважають копіюванню директорій)
+Get-ChildItem $skinsSource | ForEach-Object {
+    $targetPath = Join-Path $skinsDest $_.Name
+    if (Test-Path $targetPath -PathType Leaf) {
+        Remove-Item $targetPath -Force
+    }
+}
+
+Copy-Item "$skinsSource\*" -Destination $skinsDest -Recurse -Force
 
 # Копіювання Rainmeter (Layouts + ini) до AppData\Roaming\Rainmeter
 $rainmeterSource = Join-Path $tempPath "Rainmeter"
 $rainmeterDest = Join-Path $env:APPDATA "Rainmeter"
-Copy-Item $rainmeterSource\* -Destination $rainmeterDest -Recurse -Force
+
+# Видаляємо конфліктні файли у Rainmeter
+Get-ChildItem $rainmeterSource | ForEach-Object {
+    $targetPath = Join-Path $rainmeterDest $_.Name
+    if (Test-Path $targetPath -PathType Leaf) {
+        Remove-Item $targetPath -Force
+    }
+}
+
+Copy-Item "$rainmeterSource\*" -Destination $rainmeterDest -Recurse -Force
 
 Write-Host "`n✅ Rainmeter скіни та налаштування встановлено." -ForegroundColor Green
 Write-Host "Перезавантаж Rainmeter або відкрий Rainmeter → Layouts і вибери потрібний макет."
