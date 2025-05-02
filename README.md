@@ -21,3 +21,9 @@
 ```powershell
 git clone https://github.com/Kyrylo-Shkinov/personal-desktop-setup.git
 cd personal-desktop-setup
+
+### 2. Запусти скрипт
+```powershell
+.\setup.ps1
+
+### 3. Налаштуй TranslucentTB та Flow Launcher під свої потреби (рекомндую поставити Everything Search для індексації файлів)
