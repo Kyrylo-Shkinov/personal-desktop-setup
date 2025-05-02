@@ -5,7 +5,7 @@ winget install Git.Git --accept-package-agreements --accept-source-agreements
 winget install voidtools.Everything --accept-package-agreements --accept-source-agreements
 winget install Flow-Launcher.Flow-Launcher --accept-package-agreements --accept-source-agreements
 winget install Rainmeter.Rainmeter --accept-package-agreements --accept-source-agreements
-winget install CharlesMilette.TransparentTB --accept-package-agreements --accept-source-agreements
+winget install --id=9PF4KZ2VN4W9 --source=msstore --accept-package-agreements --accept-source-agreements
 
 # Клонування репозиторію з налаштуваннями Rainmeter
 $repoUrl = "https://github.com/Kyrylo-Shkinov/personal-desktop-setup.git"
